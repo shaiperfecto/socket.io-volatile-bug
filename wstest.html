@@ -1,0 +1,19 @@
+
+<html>
+<head>
+   <script src="js/socket.io.js"></script>
+        <script>
+        var socket = io();
+
+      socket.on('image', function(data) {
+        console.log(data.count);
+      });
+  </script>
+</head>
+<body>
+        WS Test page
+        <div id="message">Nothing yet</div>
+</body>
+</html>
+
+

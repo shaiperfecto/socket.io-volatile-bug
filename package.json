@@ -1,0 +1,12 @@
+{
+  "name": "socket.io volatile bug",
+  "version": "1.0.1",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ws.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "socket.io": "*"
+  }
+}
