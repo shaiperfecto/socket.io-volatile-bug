@@ -1,5 +1,5 @@
 {
-  "name": "socket.io volatile bug",
+  "name": "socket.io-volatile-bug",
   "version": "1.0.1",
   "main": "server.js",
   "scripts": {
