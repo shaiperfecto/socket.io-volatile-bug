@@ -165,6 +165,14 @@ Client.prototype.packet = function(packet, opts){
 
   // this writes to the actual connection
   function writeToEngine(encodedPackets) {
+    //self.conn.transport.socket.isWritable()
+    var isWritable = true;
+
+    if (self.conn.transport.name == "websocket") {
+      isWritable = self.conn.transport.isWritable();
+    } else {
+      isWritable = self.conn.transport.writable;
+    }
     if (opts.volatile && !self.conn.transport.writable) return;
     for (var i = 0; i < encodedPackets.length; i++) {
       self.conn.write(encodedPackets[i], { compress: opts.compress });

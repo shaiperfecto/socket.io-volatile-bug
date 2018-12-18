@@ -428,10 +428,7 @@ Socket.prototype.flush = function () {
       this.sentCallbackFn.push.apply(this.sentCallbackFn, this.packetsFn);
     }
     this.packetsFn = [];
-    var start = new Date();
     this.transport.send(wbuf);
-    var end = new Date() - start;
-    console.log('Completion time ' + end);
     this.emit('drain');
     this.server.emit('drain', this);
   }

@@ -86,6 +86,10 @@ WebSocket.prototype.onData = function (data) {
  * @api private
  */
 
+WebSocket.prototype.isWritable = function() {
+  return this.socket._receiver.writable;
+}
+
 WebSocket.prototype.send = function (packets) {
   var self = this;
 
