@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "express": "*",
-    "socket.io": "*"
+    "socket.io": "file:./socket.io/"
   }
 }

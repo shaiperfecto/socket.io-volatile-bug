@@ -28,11 +28,13 @@ var currentSocket;
 function sendMessage() {
 	var buf = Buffer.from(random(300000));
 	io.volatile.binary(true).emit("image", {'data':buf,'count': i});
-  	i++;
-    console.log(i);
+	i++;
+  console.log(i);
+  if (started) {
   	setTimeout(function() {
   		sendMessage();
   	}, 1000);
+  }
 }
 
 app.get('/health',function(req,res) {
@@ -58,8 +60,12 @@ app.get('/', function(req, res) {
 var started = false;
 io.on('connection', function(socket){
 	if (!started) {
-  		sendMessage();
-		started = true;
+    started = true;
+  	sendMessage();
 	}
+
+  socket.on('disconnect', function() {
+    started = false;
+  });
 });
 
