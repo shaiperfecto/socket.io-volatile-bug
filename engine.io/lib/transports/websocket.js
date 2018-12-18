@@ -87,10 +87,12 @@ WebSocket.prototype.onData = function (data) {
  */
 
 WebSocket.prototype.isWritable = function() {
+  this.socket._socket._handle.setBlocking(true);
   console.log("S===");
   console.log(this.socket.bufferedAmount);
   console.log(this.socket._socket._pendingData);
   console.log(this.socket._socket._bytesDispatched);
+  console.log(this.socket._socket._writableState.bufferedRequestCount);
 console.log("E===");
   return this.writable;
 }
