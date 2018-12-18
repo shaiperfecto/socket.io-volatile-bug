@@ -87,6 +87,11 @@ WebSocket.prototype.onData = function (data) {
  */
 
 WebSocket.prototype.isWritable = function() {
+  console.log(this.socket._receiver.writable);
+  console.log(this.socket._socket.writable);
+  console.log(!this.socket._socket._pendingData);
+  console.log(this.writable);
+  
   return this.socket._receiver.writable || this.socket._socket.writable || !this.socket._socket._pendingData;
 }
 
