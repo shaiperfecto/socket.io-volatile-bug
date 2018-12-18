@@ -173,7 +173,7 @@ Client.prototype.packet = function(packet, opts){
     } else {
       isWritable = self.conn.transport.writable;
     }
-    if (opts.volatile && !self.conn.transport.writable) return;
+    if (opts.volatile && !isWritable) return;
     for (var i = 0; i < encodedPackets.length; i++) {
       self.conn.write(encodedPackets[i], { compress: opts.compress });
     }
